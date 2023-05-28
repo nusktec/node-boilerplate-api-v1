@@ -27,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //start routing
 app.use('/', indexRouter);
 app.use('/v1', v1Routes);
-//add global route catcher
 //after all route, show 404
 app.use('*', (req, res)=>{
   throw new ErrorClass("Resource not found", 404);

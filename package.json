@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon node ./bin/www.js"
+    "start": "node ./bin/www.js",
+    "scoket": "node ./socket.js"
   },
   "type": "module",
   "dependencies": {
@@ -14,6 +15,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "nodemailer": "^6.9.2"
+    "nodemailer": "^6.9.2",
+    "socket.io": "^4.6.1"
   }
 }
