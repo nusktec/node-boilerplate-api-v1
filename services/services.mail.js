@@ -2,7 +2,7 @@
 /**
  * Slantapp code and properties {www.slantapp.io}
  */
-import fileDirName from './../file-resolver.js'
+import fileDirName from './../dirname-resolver.js'
 
 const {__dirname, __filename} = fileDirName(import.meta);
 import nodemailer from 'nodemailer';
