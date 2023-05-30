@@ -2,12 +2,16 @@
 /**
  * Slantapp code and properties {www.slantapp.io}
  */
+import fileDirName from './../file-resolver.js'
+
+const {__dirname, __filename} = fileDirName(import.meta);
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 
 class Mailer {
     btnUrl = "https://your-domain.com";
     btnText = "Subscription";
+
     constructor(to) {
         this.to = to;
     }

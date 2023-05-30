@@ -6,16 +6,17 @@
 
 import app from '../app.js';
 import debug from 'debug';
-debug()('chatgpt:server');
+debug()('node:server');
 import http from 'http';
-
+import * as dotenv from 'dotenv';
 /**
  * Get port from environment and store in Express.
  */
 
 let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-
+//dump env vars
+dotenv.config()
 /**
  * Create HTTP server.
  */
