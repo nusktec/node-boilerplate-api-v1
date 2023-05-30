@@ -3,10 +3,10 @@
  * Slantapp code and properties {www.slantapp.io}
  */
 import nodemailer from 'nodemailer';
-import fsBk from 'fs';
+import fs from 'fs';
 
-class MailTemple {
-    btnUrl = "https://spendify.ca";
+class Mailer {
+    btnUrl = "https://your-domain.com";
     btnText = "Subscription";
     constructor(to) {
         this.to = to;
@@ -44,14 +44,14 @@ class MailTemple {
 
     async send() {
         //compute email sending template here...
-        const rd = fs.readFileSync(__dirname + '/template/template.mt');
+        const rd = fs.readFileSync(__dirname + '/email.template.tpl');
         const rawTmpl = rd.toString('utf-8');
         const compile = render(rawTmpl, {body: this.body, name: this.name, btnText: this.btnText, btnUrl: this.btnUrl});
         return await transporter(compile, this.to, this.subject);
     }
 }
 
-// async..await is not allowed in global scope, must use a wrapper
+// async await is not allowed in global scope, must use a wrapper
 async function transporter(html, to, sub) {
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
@@ -87,4 +87,5 @@ let render = (template, data) => {
         return data[mkd];
     })
 }
-module.exports = MailTemple;
+
+export default Mailer

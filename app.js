@@ -24,6 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//api prefix
+const API_PREFIX  = "api";
 //start routing
 app.use('/', indexRouter);
 app.use('/v1', v1Routes);
@@ -49,6 +51,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   //res.status(err.status || 500);
   //res.render('error');
-  throw new ErrorClass("Route not found at sysetm level", 404)
+  throw new ErrorClass("Route not found at system level", 404)
 });
 export default app;
