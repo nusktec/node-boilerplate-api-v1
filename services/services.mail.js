@@ -37,7 +37,11 @@ class Mailer {
     }
 
     subject(sub) {
-        this.subject = sub;
+        if(sub) {
+            this.subject = sub;
+            return this;
+        }
+        this.subject = "No Subject"
         return this;
     }
 
